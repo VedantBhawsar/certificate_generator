@@ -1,23 +1,26 @@
-
+import React from 'react';  
+import { Route, Routes } from 'react-router-dom' 
 import './App.css';
+import Forgot_Password from './Component/Login_Page/Forgot_Password';
+import Header from './Component/Header';
+import Login from './Component/Login_Page/Login';
+import Register from './Component/Login_Page/Register';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  // <Routes>
+  //   <Header/>
+  //           <Route path="/login" element={<Login />} />
+  //           <Route path="/create_account" element={<Register />} />
+  // </Routes>
+    <div className='overflow-hidden'>
+      <Header/>
+      <Login/>
+      <Register/>
+      <Forgot_Password/>
     </div>
+    
   );
 }
 
