@@ -1,5 +1,4 @@
 import React from 'react';  
-import { Route, Routes } from 'react-router-dom' 
 import './App.css';
 import Forgot_Password from './Component/Login_Page/Forgot_Password';
 import Header from './Component/Header';
