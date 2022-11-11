@@ -1,5 +1,5 @@
 import React from 'react'
-
+import signup from '../../images/Signup.png'
 const Register = () => {
     return (
         <div className="h-screen overflow-hidden">
@@ -10,8 +10,9 @@ const Register = () => {
 
                     <div className="ml-20  w-5/12  mb-12 border-r-2 border-spacing-8 pl-7">
                         <form>
-                            <div className="flex flex-row items-center justify-center lg:justify-start">
-                                <p className="text-lg mb-0 mr-4">Sign up with</p>
+                        <div className="flex gap-4 flex-col items-center justify-center lg:justify-start">
+                                <p className="text-lg mb-0 mr-4 block">Sign in with</p>
+                                <div className='flex gap-8'>
                                 <button
                                     type="button"
                                     data-mdb-ripple="true"
@@ -54,6 +55,7 @@ const Register = () => {
                                         />
                                     </svg>
                                 </button>
+                                </div>
                             </div>
 
                             <div
@@ -131,11 +133,11 @@ const Register = () => {
                     </div>
                     <br />
                     <div
-                        className="grow-0 shrink-1  basis-auto xl:w-6/12 lg:w-6/12  mb-12"
+                        className="grow-0 shrink-1 flex justify-center rounded-full overflow-none basis-auto xl:w-6/12 lg:w-6/12  mb-12 hover:translate-x-2 transition-all"
                     >
                         <img
-                            src=""
-                            className="w-full"
+                            src={signup}
+                            className="w-[38rem] rounded-full"
                             alt="Sample image"
                         />
                     </div>

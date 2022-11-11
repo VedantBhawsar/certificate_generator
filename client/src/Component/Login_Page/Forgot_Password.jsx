@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsCheck2All } from 'react-icons/bs';
+import forgot from '../../images/ForgotPassword.png'
 
 const Forgot_Password = () => {
     return (
@@ -68,11 +69,11 @@ const Forgot_Password = () => {
                     </div>
                     <br />
                     <div
-                        className="grow-0 shrink-1  basis-auto xl:w-6/12 lg:w-6/12  mb-12"
+                        className="grow-0 shrink-1 flex justify-center hover:translate-x-2 transition-all basis-auto xl:w-6/12 lg:w-6/12  mb-12"
                     >
                         <img
-                            src=""
-                            className="w-full"
+                            src={forgot}
+                            className="w-[35rem] rounded-full"
                             alt="Sample image"
                         />
                     </div>
