@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 const Header = () => {
     return (
-        <div className=" hidden fixed  md:flex w-full  items-center justify-between">
+        <div className="fixed  flex w-full  items-center justify-between">
             <Link to={'/'} className="flex items-center gap-2 cursor-pointer">
                 <img src={Logo} className="w-12 object-cover" alt="logo" />
                 {/* <p className="text-headingColor text-xl font-bold"> City</p> */}
@@ -31,10 +31,10 @@ const Header = () => {
             </div>
 
             <div className="transition-all mr-10 rounded-full flex justify-center items-center">
-                <img
-
+                <motion.img
+                    whileTap={{ scale: 0.9 }}
                     src={Profile}
-                    className="w-12 cursor-pointer "
+                    className="w-11 drop-shadow-xl cursor-pointer rounded-full"
                     alt="userprofile"
 
                 />

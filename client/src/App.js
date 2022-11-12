@@ -23,7 +23,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route exact path='/' element={<MainPage className="overflow-y-hidden" />}   />
+          <Route exact path='/' element={<MainPage className="" />}   />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/register' element={<Register />} />
           <Route exact path='/forgot' element={<ForgotPassword />} />
