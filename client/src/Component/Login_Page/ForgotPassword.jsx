@@ -2,7 +2,8 @@ import React from 'react'
 import { BsCheck2All } from 'react-icons/bs';
 import forgot from '../../images/ForgotPassword.png'
 
-const Forgot_Password = () => {
+
+const ForgotPassword = () => {
     return (
         <div className="h-screen overflow-hidden">
             <div className="px-6 h-full text-gray-800">
@@ -83,4 +84,4 @@ const Forgot_Password = () => {
     )
 }
 
-export default Forgot_Password
+export default ForgotPassword
