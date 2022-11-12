@@ -34,7 +34,7 @@ const Header = () => {
                 <motion.img
                     whileTap={{ scale: 0.9 }}
                     src={Profile}
-                    className="w-11 drop-shadow-xl cursor-pointer rounded-full"
+                    className="w-11  drop-shadow-xl cursor-pointer rounded-full"
                     alt="userprofile"
 
                 />
