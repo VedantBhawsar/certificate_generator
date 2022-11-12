@@ -15,16 +15,16 @@ const Header = () => {
             <div className="flex items-center gap-8">
                 <ul className="flex items-center gap-24 "
                 >
-                    <li className="hover:text-gray-800 px-4 py-2 rounded-full text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                    <li className="hover:text-gray-700 px-4 py-2 rounded-full text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
                         <Link to={'/'} >Home</Link>
                     </li>
-                    <li className="hover:text-gray-800 px-4 py-2 rounded-full text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                    <li className="hover:text-gray-700 px-4 py-2 rounded-full text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
                         Template
                     </li>
-                    <li className="hover:text-gray-800 px-4 py-2 rounded-full text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                    <li className="hover:text-gray-700 px-4 py-2 rounded-full text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
                         Services
                     </li>
-                    <li className="hover:text-gray-800 px-4 py-2 rounded-full text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                    <li className="hover:text-gray-700 px-4 py-2 rounded-full text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
                         About Us
                     </li>
                 </ul>

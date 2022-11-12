@@ -71,7 +71,6 @@ const Register = () => {
                                         <input
                                             type="text"
                                             className="form-control block w-11/12 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                            id="exampleFormControlInput2"
                                             placeholder="First Name"
                                         />
                                     </div>
@@ -79,7 +78,6 @@ const Register = () => {
                                         <input
                                             type="text"
                                             className="form-control block w-11/12 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                            id="exampleFormControlInput2"
                                             placeholder="Last Name"
                                         />
                                     </div>
@@ -89,7 +87,6 @@ const Register = () => {
                                     <input
                                         type="email"
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        id="exampleFormControlInput2"
                                         placeholder="Email address"
                                     />
                                 </div>
@@ -99,7 +96,6 @@ const Register = () => {
                                     <input
                                         type="password"
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        id="exampleFormControlInput2"
                                         placeholder="Password"
                                     />
                                 </div>
@@ -113,7 +109,6 @@ const Register = () => {
                                     <input
                                         type="checkbox"
                                         className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                        id="exampleCheck3"
                                     />
                                     <label className="form-check-label inline-block text-gray-800 mr-6" for="exampleCheck3"
                                     >Remember me</label
