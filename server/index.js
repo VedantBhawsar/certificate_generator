@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express();
-const { uuid } = require('uuidv4');
+const { v4 } = require('uuid');
 
 const bcrypt = require("bcrypt");
 
@@ -19,37 +19,71 @@ let db = mysql.createConnection({
 
 db.connect();
 
-app.get('/', function(req, res){
+app.get('/', function (req, res) {
     res.send(req.body)
 })
 
-app.post('/login', async function (req, res) {
+app.post('/register', async function (req, res) {
     try {
-        
+
         const salt = await bcrypt.genSalt(10);
         const hashedPass = await bcrypt.hash(req.body.password, salt);
         const user = {
-            UserID: uuid(),
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
+            UserID: v4(),
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
             email: req.body.email,
             password: hashedPass,
         };
         console.log(req.body)
         // res.status(200).json(req.body)
         // db.query('INSERT INTO user (UserID, firstName, lastName, email, password) VALUES (?, ?, ?, ?, ?)', 
-        db.query('INSERT INTO user (UserID, firstName, lastName, email, password) VALUES (34, "a", "k", "a1@k.com", "234")',
-        // [user.firstName, user.lastName, user.email, user.password],
-        (err, result) => {
-            if(err){
-                res.send(err)
-            } 
-            res.send(result)
-        })
+        db.query('INSERT INTO user (UserID, firstName, lastName, email, password) VALUES (?, ?, ?, ?, ?)',
+            [user.UserID, user.firstname, user.lastname, user.email, user.password],
+            (err, result, fields) => {
+                if (err) {
+                    res.send(err)
+                }
+                res.json(user.UserID)
+            })
 
 
     } catch (error) {
         res.send(error)
+    }
+})
+
+app.post('/login', async (req, res) => {
+    try {
+        db.query(
+            'SELECT * FROM `user` WHERE `email` = ?',
+            [req.body.email],
+            async (err, result, fields) => {
+                if (err) {
+                    res.send(err)
+                }
+
+                const passwordCompare = await bcrypt.compare(req.body.password, result[0].password);
+
+                if (!passwordCompare) {
+
+                    res.status(400).json({ p, passwordCompare });
+
+                } else {
+
+                    const data = {
+                        user: {
+                            id: result[0].userid
+                        }
+                    }
+
+                    res.status(200).send(data)
+                }
+            })
+    } catch (error) {
+
+        res.status(400).send(error)
+        
     }
 })
 
