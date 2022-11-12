@@ -103,6 +103,39 @@ app.get('/:id', async(req, res) => {
     }
 })
 
+app.get('/generate', async(req,res) => {
+    if(req.get('creatorid')){
+        db.query('SELECT * FROM `user` WHERE `userid` = ?',
+        [req.get('creatorid')],
+        async(err, result, fields) => {
+            if (err) {
+                res.status(400).json('You Are Not A Verified Creator, Kindly Register.')
+            }
+            const certificate = {
+                certificateid: v4(),
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                certificatetype: req.body.certificatetype,
+                doc: new Date(),
+                contact: req.body.contact,
+                address: req.body.address,
+                creatorid: req.get('creatorid')
+            }
+            db.query('INSERT INTO certificates (firstname, certificateid, contact, address, lastName, doc, certificatetype, creatorid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [ certificate.firstname, certificate.certificateid, certificate.contact, certificate.address, certificate.lastname, certificate.doc, certificate.certificatetype,certificate.creatorid],
+            (err, result, fields) => {
+                if (err) {
+                    res.send(err)
+                }
+                res.json(certificate.certificateid)
+            })
+        }
+        )
+    } else {
+        res.status(400).json('You Must Be A Verified Creator To Generate Certificates')
+    }
+})
+
 app.listen(3001, () => {
     console.log('App Listening on port 3001');
 })
