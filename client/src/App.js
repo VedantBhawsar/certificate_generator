@@ -10,12 +10,26 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-import { useSelector } from 'react-redux' ;
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from './app/userSlice';
 
 function App() {
 
   const state = useSelector((state) => state.user);
-  console.log(state.user.user.userid)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getUser = async() => {
+    const result = await axios.get(`http://localhost:3001/${localStorage.getItem('id')}`)
+    console.log(result.data[0])
+    dispatch(login({user: result.data[0]}));
+    }
+
+    getUser();
+
+  }, [])
+
   
 
   return (
