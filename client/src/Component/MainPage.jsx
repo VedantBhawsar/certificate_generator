@@ -29,8 +29,8 @@ const MainPage = () => {
         </div>
 
         <div>
-          <select id="countries" class=" form-control block w-64 mb-4 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-            <option selected="" className=''>Choose a Template</option>
+          <select id="countries" className=" form-control block w-64 mb-4 px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+            <option defaultValue className=''>Choose a Template</option>
             <option className='text-gray-700'>Amezon Certificate</option>
             <option className='text-gray-700'>Google Certificate</option>
           </select>

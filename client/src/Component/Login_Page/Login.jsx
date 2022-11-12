@@ -1,16 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Register from './Register';
-import login from '../../images/Login.png'
-import { Link } from 'react-router-dom';
+import login1 from '../../images/Login.png'
+import { Link, redirect } from 'react-router-dom';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../app/userSlice.js';
+import { Redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; 
 
 const Login = () => {
+
+    const [info, setInfo] = useState({email: '', password: '', checked: false});
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        e.preventDefault();
+
+        setInfo({...info, [e.target.name]: e.target.value, })
+    }
+
+    // const handleCheckbox = (e) => {
+    //     console.log(info)
+    //     e.target.value === "false" ? e.target.value = "true" : e.target.value = "false";
+    //     setInfo({...info, [e.target.name]: e.target.value === 'true' ? false : true})
+        
+    //     console.log(info)
+    // }
+
+    const handleLogin = async(e) => {
+        e.preventDefault();
+
+        const result = await axios.post('http://localhost:3001/login', info)
+        console.log(result.data.user);
+        localStorage.setItem('id', result.data.user.id)
+
+        const user1 = await axios.get(`http://localhost:3001/${result.data.user.id}`)
+
+        // const loginUser = () => {
+        //     const user = user1;
+        // }
+        console.log(user1.data)
+        dispatch(login({user: user1.data[0]}));
+        console.log(info)
+        
+        // console.log(state.user)
+        navigate('/')
+    }
+    const user = useSelector((state)=>state)
     return (
         <div className="h-screen overflow-hidden">
             <div className="relative px-6 h-full text-gray-800">
                 {/* <h1 className='absolute text-4xl font-bold top-[10%] left-[45%]'>Login</h1> */}
                 <div className="flex justify-center flex-col items-center flex-wrap h-full g-6">
                     <div className="ml-20  w-5/12  mb-12 border-r-2 border-spacing-8 pl-7">
-                        <form>
+                        <form onSubmit={handleLogin}>
                             <div className="flex gap-4 flex-col items-center justify-center lg:justify-start">
                                 <p className="text-lg mb-0 mr-4 block">Sign in with</p>
                                 <div className='flex gap-8'>
@@ -70,6 +115,8 @@ const Login = () => {
                                 <div className="mb-6">
                                     <input
                                         type="text"
+                                        name='email'
+                                        onChange={handleChange}
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         id="exampleFormControlInput2"
                                         placeholder="Email address"
@@ -80,6 +127,8 @@ const Login = () => {
                                 <div className="mb-6">
                                     <input
                                         type="password"
+                                        name='password'
+                                        onChange={handleChange}
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         id="exampleFormControlInput2"
                                         placeholder="Password"
@@ -88,22 +137,12 @@ const Login = () => {
                             </div>
 
                             <div className="flex justify-between items-center mb-6 mr-7">
-                                <div className="form-group form-check justify-center">
-                                    <input
-                                        type="checkbox"
-                                        className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                        id="exampleCheck2"
-                                    />
-                                    <label className="form-check-label inline-block text-gray-800 mr-6" for="exampleCheck2"
-                                    >Remember me</label
-                                    >
-                                </div>
                                 <Link to={'/forgot'} className="text-gray-800 hover:underline underline-offset-3">Forgot password?</Link>
                             </div>
 
                             <div className="text-center lg:text-left">
                                 <button
-                                    type="button"
+                                    type="submit"
                                     className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-xl focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
                                 >
                                     Login
@@ -124,7 +163,7 @@ const Login = () => {
                         className="grow-0 shrink-1 rounded-full flex hover:translate-x-2 transition-all justify-center basis-auto xl:w-6/12 lg:w-6/12  mb-12"
                     >
                         <img
-                            src={login}
+                            src={login1}
                             className="w-96 "
                             alt="Sample image"
                         />

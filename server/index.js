@@ -87,6 +87,22 @@ app.post('/login', async (req, res) => {
     }
 })
 
+app.get('/:id', async(req, res) => {
+    try {
+        db.query('SELECT * FROM `user` WHERE `userid` = ?',
+        [req.params.id],
+        async(err, result, fields) => {
+            if (err) {
+                res.status(400).json(err)
+            }
+            res.status(200).json(result)
+        }
+        )
+    } catch (error) {
+        res.send(400).json(error)
+    }
+})
+
 app.listen(3001, () => {
     console.log('App Listening on port 3001');
 })
