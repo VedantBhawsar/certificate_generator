@@ -33,19 +33,14 @@ function App() {
   
 
   return (
-    // <Routes>
-    //   <Header/>
-    //           <Route path="/login" element={<Login />} />
-    //           <Route path="/create_account" element={<Register />} />
-    // </Routes>
       <div className='p-4 overflow-hidden'>
         <Router>
           <Header />
           <Routes>
-            <Route exact path='/' element={state.user?.user?.userid?.length>0?<MainPage className="" />: <Login />} />
-            <Route exact path='/login' element={state.user?.user?.userid?.length>0?<MainPage />: <Login />} />
+            <Route exact path='/' element={state.user?.user?.userid?.length>0?<MainPage className="" />: <Login className='hidden overflow-hidden'/>} />
+            <Route exact path='/login' element={state.user?.user?.userid?.length>0?<MainPage />: <Login className='hidden overflow-hidden' />} />
             <Route exact path='/register' element={state.user?.user?.userid?.length>0?<MainPage className="" />: <Register />} />
-            <Route exact path='/forgot' element={state.user?.user?.userid?.length>0?<MainPage className="" />: <Login />} />
+            <Route exact path='/forgot' element={state.user?.user?.userid?.length>0?<MainPage className="" />: <ForgotPassword />} />
           </Routes>
         </Router>
       </div>

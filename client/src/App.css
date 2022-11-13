@@ -5,3 +5,7 @@
 .font-4xl {
   font-size: 26px;
 }
+
+.hidden {
+  overflow-y: hidden;
+}
