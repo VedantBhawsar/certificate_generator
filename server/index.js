@@ -132,8 +132,9 @@ app.post('/generate', async(req,res) => {
                 const fromDate = req.body.fromDate;
                 const toDate = req.body.toDate;
                 const instructor = req.body.instructor;
+                const certificatetype = req.body.certificatetype;
                 const issuedOn = new Date().getDate()+'/'+new Date().getMonth()+'/'+new Date().getFullYear();
-                let props = {fullname, fromDate, toDate, instructor, issuedOn}
+                let props = {fullname, fromDate, toDate, instructor, issuedOn, certificatetype}
                 let tmpl_id = 0;
                 let response = req.body;
                 imageProcessor.generateImage(props, tmpl_id ,function(imageUrl){

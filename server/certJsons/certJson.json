@@ -1,49 +1,67 @@
 {
-    "certificate_template":"./srcImage/ppt_certificate_template.jpeg",
+    "certificate_template":"./srcImage/Cert.jpg",
     "certificate_template_out":"./outputImage/ppt_certificate_template_out.png",
     "label_placeholders":[
         {   
             "param_name":"fullname",
             "alignmentX":"HORIZONTAL_ALIGN_CENTER",
             "maxWidth":720,
-            "x":0,
-            "y":240,
-            "font_url":"./fonts/georgia/Georgia.fnt"
+            "x":680,
+            "y":620,
+            "font_url":"./fonts/Lucida Grande Bold 75 Grey.fnt"
         },
         {
             "param_name":"fromDate",
             "alignmentX":"HORIZONTAL_ALIGN_CENTER",
             "maxWidth":720,
-            "x":-100,
-            "y":385,
-            "font_url":"./fonts/georgia/Georgia16.fnt"
+            "x":600,
+            "y":930,
+            "font_url":"./fonts/Lucida Grande Bold 40 Grey.fnt"
         },
         {
             "param_name":"toDate",
             "label":"20 May 2021",
             "alignmentX":"HORIZONTAL_ALIGN_CENTER",
             "maxWidth":233,
-            "x":440,
-            "y":385,
-            "font_url":"./fonts/georgia/Georgia14.fnt"
+            "x":1400,
+            "y":880,
+            "font_url":"./fonts/Lucida Grande Bold 40 Grey.fnt"
         },
         {
             "param_name":"issuedOn",
             "label":"20 May 2021",
             "alignmentX":"HORIZONTAL_ALIGN_CENTER",
             "maxWidth":233,
-            "x":440,
-            "y":385,
-            "font_url":"./fonts/georgia/Georgia14.fnt"
+            "x":1130,
+            "y":950,
+            "font_url":"./fonts/Lucida Grande Bold 40 Grey.fnt"
+        },
+        {
+            "param_name":"issuedOn",
+            "label":"20 May 2021",
+            "alignmentX":"HORIZONTAL_ALIGN_CENTER",
+            "maxWidth":233,
+            "x":485,
+            "y":1100,
+            "font_url":"./fonts/Lucida Grande Bold 40 Grey.fnt"
         },
         {
             "param_name":"instructor",
             "label":"20 May 2021",
             "alignmentX":"HORIZONTAL_ALIGN_CENTER",
             "maxWidth":233,
-            "x":440,
-            "y":385,
-            "font_url":"./fonts/georgia/Georgia14.fnt"
+            "x":1350,
+            "y":1150,
+            "font_url":"./fonts/Lucida Grande Bold 40 Grey.fnt"
+        },
+        {
+            "param_name":"certificatetype",
+            "label":"20 May 2021",
+            "alignmentX":"HORIZONTAL_ALIGN_CENTER",
+            "maxWidth":400,
+            "x":1400,
+            "y":795,
+            "font_url":"./fonts/Lucida Grande Bold 40 Grey.fnt"
         }
     ]
 }
