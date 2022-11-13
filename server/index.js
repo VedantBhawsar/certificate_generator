@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express();
 const { v4 } = require('uuid');
-
 const bcrypt = require("bcrypt");
+const imageProcessor = require('./imageProcessor.js');
 
 const cors = require('cors');
 app.use(express.json())
 app.use(cors())
+// app.use(bodyParser.json());
 
 const mysql = require('mysql');
 
@@ -103,7 +104,7 @@ app.get('/:id', async(req, res) => {
     }
 })
 
-app.get('/generate', async(req,res) => {
+app.post('/generate', async(req,res) => {
     if(req.get('creatorid')){
         db.query('SELECT * FROM `user` WHERE `userid` = ?',
         [req.get('creatorid')],
@@ -127,13 +128,34 @@ app.get('/generate', async(req,res) => {
                 if (err) {
                     res.send(err)
                 }
-                res.json(certificate.certificateid)
+                const fullname = req.body.firstname+' ' + req.body.lastname;
+                const fromDate = req.body.fromDate;
+                const toDate = req.body.toDate;
+                const instructor = req.body.instructor;
+                const issuedOn = new Date().getDate()+'/'+new Date().getMonth()+'/'+new Date().getFullYear();
+                let props = {fullname, fromDate, toDate, instructor, issuedOn}
+                let tmpl_id = 0;
+                let response = req.body;
+                imageProcessor.generateImage(props, tmpl_id ,function(imageUrl){
+        
+                    if(response === "view")
+                        res.send("<img src='"+imageUrl.replace("./outputImage","")+"' />");
+                    else  
+                        res.sendFile(imageUrl , { root: __dirname });  
+                    
+                })
             })
         }
         )
+        // res.send('Hello')
     } else {
         res.status(400).json('You Must Be A Verified Creator To Generate Certificates')
     }
+    // res.status(200).json('Hello')
+})
+
+app.post('/generateCert', async(req, res) => {
+    res.status(200).json('DOne')
 })
 
 app.listen(3001, () => {
